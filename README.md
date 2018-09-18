@@ -1,14 +1,28 @@
+## Description
+Developing a online python script editor used to control an Arduino powered traffic signal.
 
-# Dependencies
+## Exploration
 
-```python
 
+## Dependencies
+
+```
 pip install flask
-pip install flask-bootstrap
-pip install WTForms
-
 
 ```
 
-# TO-DO
-Form to receive user input as code format
+```
+pip install flask-bootstrap
+
+```
+
+```
+pip install WTForms
+
+```
+
+```
+
+pip install flask-codemirror
+
+```

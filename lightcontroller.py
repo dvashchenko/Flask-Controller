@@ -4,35 +4,43 @@ from flask_wtf import Form
 from flask_codemirror.fields import CodeMirrorField
 from wtforms.fields import SubmitField
 from flask_codemirror import CodeMirror
+from flask import request
+import subprocess
+
+CODEMIRROR_LANGUAGES = ['python', 'html']
+SECRET_KEY='secret!'
+CODEMIRROR_THEME = '3024-night'
+CODEMIRROR_ADDONS = (
+            ('display','placeholder'),
+)
+
 
 app = Flask(__name__)
 app.config.from_object(__name__)
-app.config.update(
-SECRET_KEY='secret!'
-CODEMIRROR_LANGUAGES = ['python', 'html']
-)
 codemirror = CodeMirror(app)
-
-
-class MyForm(Form):
-    source_code = CodeMirrorField(language='python', config={'lineNumbers' : 'true'})
-    submit = SubmitField('Submit')
-
-@app.route('/test', methods = ['GET', 'POST'])
-def test():
-    form = MyForm()
-    if form.validate_on_submit():
-        text = form.source_code.data
-    return render_template('test.html', form = form)
-
-
-app = Flask(__name__)
 Bootstrap(app)
 
 
-@app.route("/")
+@app.route('/')
+def test():
+    return render_template('v2.html')
+
+@app.route("/v1")
 def index():
-    return render_template('index.html')
+    return render_template('v1.html')
+
+@app.route("/run")
+def runcode():
+    code = request.args.get('code')
+
+    f = open('userCode/code.py', 'w')
+    f.write(code)
+    f.close()
+
+    result = subprocess.Popen(['python', 'userCode/code.py'], stdout=subprocess.PIPE)
+    output = result.communicate()[0]
+
+    return output
 
 
 if __name__ =='__main__':

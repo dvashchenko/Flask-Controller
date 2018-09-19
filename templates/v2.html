@@ -1,0 +1,39 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+{{ codemirror.include_codemirror() }}
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+    function getCode(){
+      // document.getElementById("t").innerHTML = "Running:";
+
+      // var code = $("#idfromhtml").val();
+
+      var code = editor_for_source_code.getValue() //grabs code from CodeMirror
+      // var rec = 'You will run: \n'
+      // alert(rec + code)
+
+      document.getElementById("run").innerHTML = "Running";
+
+      $.get("http://localhost:5000/run", {'code': code}, function(res){
+      alert(res)
+      });
+    }
+
+  </script>
+
+<h1 class="text-center">Traffic Light Controller V2</h1>
+<textarea id="flask-codemirror-source_code" name="source_code"></textarea>
+    <script>
+        var editor_for_source_code = CodeMirror.fromTextArea(
+            document.getElementById('flask-codemirror-source_code'),
+              {
+        "theme": "3024-night",
+        "mode": "python",
+        "lineNumbers": "true"
+}
+        );
+    </script>
+<button id="run" type="button" class="btn btn-primary btn-lg btn-block" onclick="getCode()">Run</button>
+{% endblock %}

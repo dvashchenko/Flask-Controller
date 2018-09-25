@@ -20,25 +20,26 @@
 
   </script>
 
-<h1 class="text-center">Traffic Light Controller V2</h1>
-<textarea id="flask-codemirror-source_code" name="source_code"></textarea>
-    <script>
-        var editor_for_source_code = CodeMirror.fromTextArea(
-            document.getElementById('flask-codemirror-source_code'),
-              {
-        "theme": "3024-night",
-        "mode": "python",
-        "lineNumbers": "true"
-}
-        );
-    </script>
-<button id="run" type="button" class="btn btn-primary btn-lg btn-block" onclick="getCode()">Run</button>
+<div class="container">
+    <h1 class="text-center">Traffic Light Controller V2</h1>
+    <textarea id="flask-codemirror-source_code" name="source_code"></textarea>
+        <script>
+            var editor_for_source_code = CodeMirror.fromTextArea(
+                document.getElementById('flask-codemirror-source_code'),
+                  {
+            "theme": "3024-night",
+            "mode": "python",
+            "lineNumbers": "true"
+    }
+            );
+        </script>
+    <button id="run" type="button" class="btn btn-primary btn-lg btn-block" onclick="getCode()">Run</button>
+</div>
 
 <div class="container">
     <div class="form-group">
       <textarea id="output" class="form-control" rows="5" id="comment" name="text"></textarea>
     </div>
-    <h2 class="text-center">OUTPUT</h2>
 </div>
 
 

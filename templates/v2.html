@@ -8,13 +8,13 @@
     function getCode(){
 
       var code = editor_for_source_code.getValue() //grabs code from CodeMirror
-      // var rec = 'You will run: \n'
-      // alert(rec + code)
 
       document.getElementById("run").innerHTML = "Running";
 
-      $.get("http://localhost:5000/run", {'code': code}, function(res){
-      alert(res)
+      $.get("http://localhost:5000/run", {'code': code}, function(write){
+
+      document.getElementById("output").innerHTML = write;
+
       });
     }
 
@@ -33,4 +33,14 @@
         );
     </script>
 <button id="run" type="button" class="btn btn-primary btn-lg btn-block" onclick="getCode()">Run</button>
+
+<div class="container">
+    <div class="form-group">
+      <textarea id="output" class="form-control" rows="5" id="comment" name="text"></textarea>
+    </div>
+    <h2 class="text-center">OUTPUT</h2>
+</div>
+
+
+
 {% endblock %}

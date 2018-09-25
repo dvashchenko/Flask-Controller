@@ -4,11 +4,13 @@ Developing an online script editor that will allow users to execute their code l
 ## TO-DO
 ~~Convert functionality to be compatible w/ CodeMirror~~
 
-Output code result to second CodeMirror instance rather than JS alert
+~~Output code result to second CodeMirror instance rather than JS alert~~
 
 Organize & Separate tag templates using Jinja
 
-Add reset button
+Add reset button for "Run Again" Function
+
+Python 2.7/3.x support
 
 ## Dependencies
 
@@ -24,6 +26,10 @@ pip install flask-bootstrap
 
 ```
 pip install WTForms
+
+```
+```
+pip install Flask-WTF
 
 ```
 

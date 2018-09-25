@@ -18,6 +18,20 @@
       });
     }
 
+    function reRun(){
+
+      var code = write //grabs code from CodeMirror
+
+      document.getElementById("run").innerHTML = "Re-Running";
+
+      $.get("http://localhost:5000/run", {'code': code}, function(write){
+
+      document.getElementById("output").innerHTML = write;
+
+      });
+    }
+
+
   </script>
 
 <div class="container">
@@ -33,13 +47,14 @@
     }
             );
         </script>
-    <button id="run" type="button" class="btn btn-primary btn-lg btn-block" onclick="getCode()">Run</button>
+    <button id="run" type="button" class="btn btn-primary btn-block" onclick="getCode()">Run</button>
 </div>
 
 <div class="container">
     <div class="form-group">
       <textarea id="output" class="form-control" rows="5" id="comment" name="text"></textarea>
     </div>
+    <button id="run" type="button" class="btn btn-primary" onclick="reRun()">Run Again</button>
 </div>
 
 

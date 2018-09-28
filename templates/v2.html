@@ -18,17 +18,16 @@
       });
     }
 
-    function reRun(){
+    function Clear(){
 
-      var code = write //grabs code from CodeMirror
+      var code = "";
 
-      document.getElementById("run").innerHTML = "Re-Running";
+      document.getElementById("run").innerHTML = "Run";
 
-      $.get("http://localhost:5000/run", {'code': code}, function(write){
+      document.getElementById("output").innerHTML = "";
 
-      document.getElementById("output").innerHTML = write;
+      CodeMirror.setCode("");
 
-      });
     }
 
 
@@ -54,9 +53,7 @@
     <div class="form-group">
       <textarea id="output" class="form-control" rows="5" id="comment" name="text"></textarea>
     </div>
-    <button id="run" type="button" class="btn btn-primary" onclick="reRun()">Run Again</button>
+    <button id="run" type="button" class="btn btn-primary" onclick="Clear()">Reset</button>
 </div>
-
-
 
 {% endblock %}

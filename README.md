@@ -8,9 +8,9 @@ Developing an online script editor that will allow users to execute their code l
 
 Organize & Separate tag templates using Jinja
 
-Add reset button for "Run Again" Function
+~~Add reset button~~ for "Run Again" Function
 
-Python 2.7/3.x support
+Python 2.7/3.x support (currently supports 2.7) need to implement switch to 3 
 
 ## Dependencies
 

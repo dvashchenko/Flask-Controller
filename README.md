@@ -12,7 +12,7 @@ Organize & Separate tag templates using Jinja
 
 Reset button needs to run stop () "light" in order to fully reset traffic signal
 
-Python 2.7/3.x support (currently supports 2.7?) need to implement switch to 3 
+Python 2.7/3.x support (currently supports 2.7?) need to implement switch to 3
 
 ## Dependencies
 

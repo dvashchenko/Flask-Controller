@@ -14,7 +14,6 @@ CODEMIRROR_ADDONS = (
             ('display','placeholder'),
 )
 
-
 app = Flask(__name__)
 app.config.from_object(__name__)
 codemirror = CodeMirror(app)

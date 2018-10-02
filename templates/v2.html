@@ -1,34 +1,21 @@
 {% extends "bootstrap/base.html" %}
 {% block content %}
 {{ codemirror.include_codemirror() }}
-
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript">
-
     function getCode(){
-
       var code = editor_for_source_code.getValue() //grabs code from CodeMirror
 
       document.getElementById("run").innerHTML = "Running";
-
       $.get("http://localhost:5000/run", {'code': code}, function(write){
-
       document.getElementById("output").innerHTML = write;
-
       });
     }
-
     function Clear(){
-
       editor_for_source_code.setValue("");
-
       document.getElementById("run").innerHTML = "Run";
-
       document.getElementById("output").innerHTML = "";
-
     }
-
-
   </script>
 
 <div class="container">
@@ -46,12 +33,10 @@
         </script>
     <button id="run" type="button" class="btn btn-success btn-block" onclick="getCode()">Run</button>
 </div>
-
 <div class="container">
     <div class="form-group">
       <textarea id="output" class="form-control" rows="5" id="comment" name="text"></textarea>
     </div>
     <button id="run" type="button" class="btn btn-warning" onclick="Clear()">Reset</button>
 </div>
-
 {% endblock %}

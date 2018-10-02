@@ -10,7 +10,9 @@ Organize & Separate tag templates using Jinja
 
 ~~Add reset button~~ for "Run Again" Function
 
-Python 2.7/3.x support (currently supports 2.7) need to implement switch to 3 
+Reset button needs to run stop () "light" in order to fully reset traffic signal
+
+Python 2.7/3.x support (currently supports 2.7?) need to implement switch to 3 
 
 ## Dependencies
 
@@ -32,7 +34,6 @@ pip install WTForms
 pip install Flask-WTF
 
 ```
-
 ```
 
 pip install flask-codemirror

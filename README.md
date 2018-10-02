@@ -1,5 +1,5 @@
 ## Description
-Developing an online script editor that will allow users to execute their code live to control an Arduino powered traffic signal.
+Developing an online script editor that will allow users to execute their code live to control an Raspberry Pi powered traffic signal.
 
 ## TO-DO
 ~~Convert functionality to be compatible w/ CodeMirror~~

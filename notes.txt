@@ -6,11 +6,9 @@ POST instead of GET
 //notes
 
 IMPORTANT
-JQUERY how to built post request javasscript
+JQUERY how to built post request javascript
 how to make flask app handle a post request for the run endpoint
 representation for post instead of get for 
-
-
 
 minor aesthetics to do:
 prevent resize of output 

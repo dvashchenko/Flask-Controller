@@ -6,7 +6,7 @@
     function getCode(){
       var code = editor_for_source_code.getValue() //grabs code from CodeMirror
 
-      document.getElementById("run").innerHTML = "Running";
+      $.get("run").innerHTML = "Running";
       $.get("http://localhost:5000/run", {'code': code}, function(write){
       document.getElementById("output").innerHTML = write;
       });

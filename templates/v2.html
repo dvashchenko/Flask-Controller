@@ -6,15 +6,15 @@
     function getCode(){
       var code = editor_for_source_code.getValue() //grabs code from CodeMirror
 
-      $.get("run").innerHTML = "Running";
+      $("#run").html("Running");
       $.get("http://localhost:5000/run", {'code': code}, function(write){
-      document.getElementById("output").innerHTML = write;
+      $("#output").html(write);
       });
     }
     function Clear(){
       editor_for_source_code.setValue("");
-      document.getElementById("run").innerHTML = "Run";
-      document.getElementById("output").innerHTML = "";
+      $("#run").html("Run");
+      $("#output").html("");
     }
   </script>
 

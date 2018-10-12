@@ -10,22 +10,20 @@ JQUERY how to built post request javascript
 how to make flask app handle a post request for the run endpoint
 representation for post instead of get for 
 
-fix jquery and javascript together in v2.html
-
 minor aesthetics to do:
-prevent resize of output 
-leave space under the terminal 
+prevent resize of output
+leave space under the terminal
 
-terminal will take up half of the page 
-out put will be at the bottom 
+terminal will take up half of the page
+out put will be at the bottom
 
 
 MAJOR:
-investigate what how to prevent some type of code from breaking PI / any machine ? 
+investigate what how to prevent some type of code from breaking PI / any machine ?
 permissions control?
 investigate code before executing?
 some type of program to inspect first
-or some type to restrict some sort of functions? 
+or some type to restrict some sort of functions?
 
 RESEARCH:
 import other libraries? which will give u access to oS and other resource DO NOT EXECUTE

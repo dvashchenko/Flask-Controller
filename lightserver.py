@@ -28,9 +28,9 @@ def test():
 def index():
     return render_template('v1.html')
 
-@app.route("/run")
+@app.route("/run", methods = ['POST'])
 def runcode():
-    code = request.args.get('code')
+    code = request.form['code']
 
     f = open('userCode/code.py', 'w')
     f.write(code)
@@ -43,4 +43,5 @@ def runcode():
 
 
 if __name__ =='__main__':
+    app.config['BOOTSTRAP_SERVE_LOCAL'] = True;
     app.run(debug=True)

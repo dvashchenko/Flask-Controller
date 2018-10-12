@@ -43,5 +43,4 @@ def runcode():
 
 
 if __name__ =='__main__':
-    app.config['BOOTSTRAP_SERVE_LOCAL'] = True;
     app.run(debug=True)

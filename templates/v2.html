@@ -12,19 +12,18 @@
       <script type="text/javascript">
         function getCode(){
             var code = editor_for_source_code.getValue() //grabs code from CodeMirror
-
             $("#run").html("Running");
             $.post("http://localhost:5000/run", {'code': code}, function(write){
             $("#output").html(write);
+            $("#run").html("Run");
             });
           }
         function Clear(){
             editor_for_source_code.setValue("");
-            $("#run").html("Run");
             $("#output").html("");
           }
         </script>
-
+  </head>
       <body>
       <div class="container">
           <h1 class="display-4">LIGHT CONTROLLER</h1>
@@ -39,18 +38,17 @@
           }
                   );
               </script>
-    </head>
-
-</div>
-<div class="container">
-    <div class="form-group">
-      <textarea id="output" class="form-control" rows="5" id="comment" name="text"></textarea>
-    </div>
-    <div class="col-md-12 text-center">
-      <button id="run" type="button" class="btn btn-success" onclick="getCode()">Run</button>
-      <button id="reset" type="button" class="btn btn-warning" onclick="Clear()">Reset</button>
-    </div>
-</div>
+      </div>
+      
+        <div class="container">
+            <div class="form-group">
+              <textarea id="output" class="form-control" rows="5" id="comment" name="text"></textarea>
+            </div>
+            <div class="col-md-12 text-center">
+              <button id="run" type="button" class="btn btn-success" onclick="getCode()">Run</button>
+              <button id="reset" type="button" class="btn btn-warning" onclick="Clear()">Reset</button>
+            </div>
+      </div>
 
 </body>
 </html>

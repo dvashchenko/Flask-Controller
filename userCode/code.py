@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # Python program to display calendar of given month of the year
 
 # import module
@@ -12,3 +13,8 @@ mm = 11
 
 # display the calendar
 print(calendar.month(yy, mm))
+=======
+x = ['easdasd', 'dasdasd', 'asdasd']
+for i in x:
+  print (i)
+>>>>>>> Stashed changes

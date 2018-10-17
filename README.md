@@ -15,25 +15,18 @@ Reset button needs to run stop () "light" in order to fully reset traffic signal
 ## Dependencies
 
 ```
-pip install flask
+sudo pip install flask
+```
+
+```
+sudo pip install flask-bootstrap
+```
+
+```
+sudo pip install flask-wtf
 
 ```
 
 ```
-pip install flask-bootstrap
-
-```
-
-```
-pip install WTForms
-
-```
-```
-pip install Flask-WTF
-
-```
-```
-
-pip install flask-codemirror
-
+sudo pip install flask-codemirror
 ```

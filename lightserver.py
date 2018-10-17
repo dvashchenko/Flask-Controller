@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template
 from flask_bootstrap import Bootstrap
 from flask_wtf import Form
@@ -5,7 +6,7 @@ from flask_codemirror.fields import CodeMirrorField
 from wtforms.fields import SubmitField
 from flask_codemirror import CodeMirror
 from flask import request
-import subprocess
+from subprocess import Popen, PIPE, STDOUT
 
 CODEMIRROR_LANGUAGES = ['python', 'html']
 SECRET_KEY='secret!'
@@ -36,7 +37,7 @@ def runcode():
     f.write(code)
     f.close()
 
-    result = subprocess.Popen(['python', 'userCode/code.py'], stdout=subprocess.PIPE)
+    result = Popen("python userCode/code.py < userCode/test.txt", stdout=PIPE, stdin=PIPE, stderr=PIPE, shell=True, preexec_fn=os.setsid) 
     output = result.communicate()[0]
 
     return output

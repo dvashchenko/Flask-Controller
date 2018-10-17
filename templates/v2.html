@@ -13,9 +13,11 @@
         function getCode(){
             var code = editor_for_source_code.getValue() //grabs code from CodeMirror
             $("#run").html("Running");
+            alert("Hi");
             $.post("http://localhost:5000/run", {'code': code}, function(write){
-            $("#output").html(write);
-            $("#run").html("Run");
+              console.log(write);
+              $("#output").html(write);
+              $("#run").html("Run");
             });
           }
         function Clear(){

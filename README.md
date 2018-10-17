@@ -26,7 +26,6 @@ sudo pip install flask-bootstrap
 
 ```
 sudo pip install flask-wtf
-
 ```
 
 ```

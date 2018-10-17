@@ -1,7 +1,9 @@
 ## Description
-Developing an online script environment that will allow users to execute their code live to control an Raspberry Pi powered traffic signal.
+Developing an online python compiler using Flask, CodeMirror, JavaScript and the Jinja Template engine. 
 
 ## TO-DO
+User input handling
+
 ~~Convert functionality to be compatible w/ CodeMirror~~
 
 ~~Output code result to second CodeMirror instance rather than JS alert~~

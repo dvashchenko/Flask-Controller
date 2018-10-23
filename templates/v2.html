@@ -10,11 +10,23 @@
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
       <script type="text/javascript">
+        function process(){
+          return "test"
+        }
+
         function getCode(){
             var code = editor_for_source_code.getValue() //grabs code from CodeMirror
+
+            var input = process(code);
+
+            // Scan code for the occurence of raw_input("prompt")
+            // For each occurence ask the user to enter input through a pop-up dialog box
+            // Concatenate all inputs, separated by new line and store in the "input variable"
+
+            
             $("#run").html("Running");
-            alert("Hi");
-            $.post("http://localhost:5000/run", {'code': code}, function(write){
+          
+            $.post("http://localhost:5000/run", {'code': code, 'input': input}, function(write){
               console.log(write);
               $("#output").html(write);
               $("#run").html("Run");
@@ -28,7 +40,7 @@
   </head>
       <body>
       <div class="container">
-          <h1 class="display-4">LIGHT CONTROLLER</h1>
+          <h1 class="display-4">Pyterpreter</h1>
           <textarea id="flask-codemirror-source_code" name="source_code"></textarea>
               <script>
                   var editor_for_source_code = CodeMirror.fromTextArea(

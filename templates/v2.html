@@ -13,19 +13,20 @@
         function search(code){
           var found = (code.match(/raw_input()/g) || []).length
           if (found == 0){ //getting BadRequestKeyError because expecting input so using dummy input when not raw_input
-            return ''; //doesnt seem good 
+            return '' //doesnt seem good 
           }
           while(found != 0){
-            var userInput = prompt();
-            found--;
+            var userInput = prompt()
+            var total //when adding string does not return all userInputs
+            total += userInput
+            found--
           }
-          console.log(found[0])
-          return userInput; //return concat 
+          return total 
         }
 
         function getCode(){
             var code = editor_for_source_code.getValue() //grabs code from CodeMirror
-            var input = search(code);
+            var input = search(code)
 
             // Scan code for the occurence of raw_input("prompt")
             // For each occurence ask the user to enter input through a pop-up dialog box

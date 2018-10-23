@@ -12,14 +12,15 @@
       <script type="text/javascript">
         function search(code){
           var found = (code.match(/raw_input()/g) || []).length
-          if (found == 0){ //getting BadRequestKeyError becasue expecting input
+          if (found == 0){ //getting BadRequestKeyError because expecting input so using dummy input when not raw_input
             return ''; //doesnt seem good 
           }
           while(found != 0){
             var userInput = prompt();
-            found--
+            found--;
           }
-          return concat
+          console.log(found[0])
+          return userInput; //return concat 
         }
 
         function getCode(){
@@ -46,7 +47,7 @@
   </head>
       <body>
       <div class="container">
-          <h1 class="display-4"></h1>
+          <h1 class="display-4">Python</h1>
           <textarea id="flask-codemirror-source_code" name="source_code"></textarea>
               <script>
                   var editor_for_source_code = CodeMirror.fromTextArea(

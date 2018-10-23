@@ -1,1 +1,10 @@
-print 3
+x = raw_input()
+x = raw_input()
+x = raw_input()
+x = raw_input()
+x = raw_input()
+x = raw_input()
+x = raw_input()
+x = raw_input()
+
+print x

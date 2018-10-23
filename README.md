@@ -1,5 +1,5 @@
 ## Description
-Developing an online python compiler using Flask, CodeMirror, JavaScript and the Jinja Template engine. 
+Developing an online python interpreter using Flask, CodeMirror, JavaScript and the Jinja Template engine. 
 
 ## TO-DO
 User input handling

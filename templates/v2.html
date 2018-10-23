@@ -2,7 +2,7 @@
   <html>
     <head>
       <meta charset="UTF-8">
-      <title>Light Contoller</title>
+      <title>Python Interpreter</title>
       {{ codemirror.include_codemirror() }}
       <link rel="stylesheet" href="static/bstrap/css/bootstrap.css"/>
       <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
@@ -10,22 +10,27 @@
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
       <script type="text/javascript">
-        function process(){
-          return "test"
+        function search(code){
+          var found = (code.match(/raw_input()/g) || []).length
+          if (found == 0){ //getting BadRequestKeyError becasue expecting input
+            return ''; //doesnt seem good 
+          }
+          while(found != 0){
+            var userInput = prompt();
+            found--
+          }
+          return concat
         }
 
         function getCode(){
             var code = editor_for_source_code.getValue() //grabs code from CodeMirror
-
-            var input = process(code);
+            var input = search(code);
 
             // Scan code for the occurence of raw_input("prompt")
             // For each occurence ask the user to enter input through a pop-up dialog box
             // Concatenate all inputs, separated by new line and store in the "input variable"
 
-            
             $("#run").html("Running");
-          
             $.post("http://localhost:5000/run", {'code': code, 'input': input}, function(write){
               console.log(write);
               $("#output").html(write);
@@ -37,10 +42,11 @@
             $("#output").html("");
           }
         </script>
+
   </head>
       <body>
       <div class="container">
-          <h1 class="display-4">Pyterpreter</h1>
+          <h1 class="display-4"></h1>
           <textarea id="flask-codemirror-source_code" name="source_code"></textarea>
               <script>
                   var editor_for_source_code = CodeMirror.fromTextArea(

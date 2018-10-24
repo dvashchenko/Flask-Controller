@@ -1,7 +1,7 @@
 # Description
 ### An online python interpreter designed for kids and beginner programers to be able to visualize code real-time and understand basic concepts of Object-Oriented Programming. Built with Flask, Bootstrap, CodeMirror, and JavaScript.
 
-## TO-DO
+### TO-DO
 ~~User input handling~~
 
 ~~Convert functionality to be compatible w/ CodeMirror~~
@@ -14,7 +14,7 @@
 
 ~~Python 2.7/3.x support (currently supports 2.7?) need to implement switch to 3~~
 
-## Dependencies
+### Dependencies
 
 ```
 sudo pip install flask

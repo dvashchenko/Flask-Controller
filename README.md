@@ -2,11 +2,11 @@
 An online python interpreter designed for kids and beginner programers to be able to visualize code real-time and understand basic concepts of Object-Oriented Programming. Built with Flask, Bootstrap, CodeMirror, and JavaScript.
 
 ## TO-DO
-~~User input handling
+~~User input handling~~
 
-~~Convert functionality to be compatible w/ CodeMirror
+~~Convert functionality to be compatible w/ CodeMirror~~
 
-~~Output code result to second CodeMirror instance rather than JS alert
+~~Output code result to second CodeMirror instance rather than JS alert~~
 
 ~~Add reset button~~ 
 

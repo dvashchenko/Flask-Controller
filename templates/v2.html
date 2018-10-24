@@ -12,15 +12,12 @@
       <script type="text/javascript">
         function userInput(code){
           var found = (code.match(/raw_input()/g) || []).length
-          if (found == 0){ //getting BadRequestKeyError because expecting input so using dummy input when not raw_input
-            return '' //doesnt seem like a good solution
+          if (found == 0){
+            return '' 
           }
-          // alert(found)
-          
-          var total = "" //when initialzing w/ string does not return all userInputs
+          var total = ''
           while(found != 0){
             var userInput = prompt('Input:')
-             
             total += userInput + '\n'
             found--
           }
@@ -30,11 +27,7 @@
         function getCode(){
             var code = editor_for_source_code.getValue() //grabs code from CodeMirror
             var input = userInput(code)
-
-            // Scan code for the occurence of raw_input("prompt")
-            // For each occurence ask the user to enter input through a pop-up dialog box
-            // Concatenate all inputs, separated by new line and store in the "input variable"
-
+            
             $("#run").html("Running");
             $.post("http://localhost:5000/run", {'code': code, 'input': input}, function(write){
               console.log(write);
@@ -50,28 +43,28 @@
 
   </head>
       <body>
-      <div class="container">
-          <h1 class="display-4">Python</h1>
-          <textarea id="flask-codemirror-source_code" name="source_code"></textarea>
-              <script>
-                  var editor_for_source_code = CodeMirror.fromTextArea(
-                      document.getElementById('flask-codemirror-source_code'),
-                        {
-                  "theme": "3024-night",
-                  "mode": "python",
-                  "lineNumbers": "true"
-          }
-                  );
-              </script>
-      </div>
         <div class="container">
-            <div class="form-group">
-              <textarea id="output" class="form-control" rows="5" id="comment" name="text"></textarea>
-            </div>
-            <div class="col-md-12 text-center">
-              <button id="run" type="button" class="btn btn-success" onclick="getCode()">Run</button>
-              <button id="reset" type="button" class="btn btn-warning" onclick="Clear()">Reset</button>
-            </div>
-      </div>
+            <h1 class="display-4"></h1>
+            <textarea id="flask-codemirror-source_code" name="source_code"></textarea>
+                <script>
+                    var editor_for_source_code = CodeMirror.fromTextArea(
+                        document.getElementById('flask-codemirror-source_code'),
+                          {
+                    "theme": "3024-night",
+                    "mode": "python",
+                    "lineNumbers": "true"
+            }
+                    );
+                </script>
+        </div>
+          <div class="container">
+              <div class="form-group">
+                <textarea id="output" class="form-control" rows="5" id="comment" name="text"></textarea>
+              </div>
+              <div class="col-md-12 text-center">
+                <button id="run" type="button" class="btn btn-success" onclick="getCode()">Run</button>
+                <button id="reset" type="button" class="btn btn-warning" onclick="Clear()">Reset</button>
+              </div>
+        </div>
 </body>
 </html>

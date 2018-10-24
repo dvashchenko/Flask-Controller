@@ -1,5 +1,5 @@
-## Description
-An online python interpreter designed for kids and beginner programers to be able to visualize code real-time and understand basic concepts of Object-Oriented Programming. Built with Flask, Bootstrap, CodeMirror, and JavaScript.
+# Description
+### An online python interpreter designed for kids and beginner programers to be able to visualize code real-time and understand basic concepts of Object-Oriented Programming. Built with Flask, Bootstrap, CodeMirror, and JavaScript.
 
 ## TO-DO
 ~~User input handling~~

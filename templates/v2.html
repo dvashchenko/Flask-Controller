@@ -10,6 +10,20 @@
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
       <script type="text/javascript">
+       function Clear(){
+            cleared = editor_for_source_code.setValue("");
+            $("#output").html("");
+            return cleared
+          }
+        function antiHack(code){
+          var found = (code.match(/import os/g) || []).length
+            if (found != 0){
+              return true
+            }
+            else{
+              return false
+            }   
+        }
         function userInput(code){
           var found = (code.match(/raw_input()/g) || []).length
           if (found == 0){
@@ -23,21 +37,19 @@
           }
           return total 
         }
-
         function getCode(){
             var code = editor_for_source_code.getValue() //grabs code from CodeMirror
+            if (antiHack(code)){
+              code = Clear()
+              alert('Hacking is a Crime')
+            }
             var input = userInput(code)
-            
             $("#run").html("Running");
             $.post("http://localhost:5000/run", {'code': code, 'input': input}, function(write){
               console.log(write);
               $("#output").html(write);
               $("#run").html("Run");
             });
-          }
-        function Clear(){
-            editor_for_source_code.setValue("");
-            $("#output").html("");
           }
         </script>
 

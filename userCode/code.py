@@ -1,7 +1,5 @@
-x = raw_input()
-
-print x
-
-y = raw_input()
-
-print y
+i = 1
+while i < 6:
+  print i
+  i++
+ 

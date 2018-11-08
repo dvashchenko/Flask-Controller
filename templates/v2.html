@@ -27,10 +27,6 @@
         function userInput(code){ //send prompt to input window //ignore prompt from window when passing
           var found = (code.match(/raw_input()/g) || []).length
           var test = (code.match(/raw_input()/) || []).input.split(/['']/)
-          while(found){
-            test[i]
-            i = i+2
-          }
           console.log(test)
           if (found == 0){
             return '' 

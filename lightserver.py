@@ -20,14 +20,9 @@ app.config.from_object(__name__)
 codemirror = CodeMirror(app)
 Bootstrap(app)
 
-
 @app.route('/')
 def test():
     return render_template('v2.html')
-
-@app.route("/v1")
-def index():
-    return render_template('v1.html')
 
 @app.route("/run", methods = ['POST'])
 def runcode():

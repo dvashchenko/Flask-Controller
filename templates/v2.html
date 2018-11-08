@@ -16,7 +16,7 @@
             return cleared
           }
         function antiHack(code){
-          var found = (code.match(/import os/g) || []).length
+          var found = (code.match(/import/g) || []).length //forbid import other than light 
             if (found != 0){
               return true
             }
@@ -24,14 +24,20 @@
               return false
             }   
         }
-        function userInput(code){
+        function userInput(code){ //send prompt to input window //ignore prompt from window when passing
           var found = (code.match(/raw_input()/g) || []).length
+          var test = (code.match(/raw_input()/) || []).input.split(/['']/)
+          while(found){
+            test[i]
+            i = i+2
+          }
+          console.log(test)
           if (found == 0){
             return '' 
           }
           var total = ''
           while(found != 0){
-            var userInput = prompt('Input:')
+            var userInput = prompt(def)
             total += userInput + '\n'
             found--
           }
@@ -41,7 +47,7 @@
             var code = editor_for_source_code.getValue() //grabs code from CodeMirror
             if (antiHack(code)){
               code = Clear()
-              alert('Hacking is a Crime')
+              alert('Not Allowed')
             }
             var input = userInput(code)
             $("#run").html("Running");

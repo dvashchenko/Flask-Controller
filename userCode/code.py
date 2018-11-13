@@ -1,17 +1,13 @@
-x = raw_input('test')
+import os
+x = raw_input()
+print x 
 
-print x
-
-
-y = raw_input('test2')
-
+y = raw_input()
 print y
 
-z = raw_input('test3')
+x = raw_input("yes")
+print x 
 
-print z
+y = raw_input("yes")
+print y
 
-
-a = raw_input('test4')
-
-print a

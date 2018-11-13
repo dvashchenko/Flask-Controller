@@ -10,9 +10,10 @@
       <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
       <script type="text/javascript">
-       function Clear(){
-            cleared = editor_for_source_code.setValue("");
-            $("#output").html("");
+       function Clear(){ //maybe force a refresh?
+            cleared = editor_for_source_code.setValue("")
+            $("#output").html("")
+            location.reload()
             return cleared
           }
         function antiHack(code){ //not really 
@@ -24,36 +25,54 @@
               return false
             }   
         }
-        function userInput(code){ //send prompt to input window //ignore prompt from window when passing
+        function userInput(code){ //send prompt to input window //ignore prompt from output when passing
           var found = (code.match(/raw_input()/g) || []).length
           var test = (code.match(/raw_input()/) || []).input.split(/['']/)
-          console.log(test)
           if (found == 0){
             return '' 
           }
           var total = ''
-          while(found != 0){
-            var userInput = prompt(def)
-            total += userInput + '\n'
+          var i = 1
+          while(found != 0){  
+            var userInput = prompt(test[i])
+            total += userInput + '\n' 
+            i = i + 2
             found--
           }
-          return total 
+          return total
         }
         function getCode(){
             var code = editor_for_source_code.getValue() //grabs code from CodeMirror
-            if (antiHack(code)){
-              code = Clear()
-              alert('Not Allowed')
-            }
             var input = userInput(code)
+            var amount = (code.match(/raw_input()/g) || []).length //checks amount of raws        
+            if (antiHack(code)){
+              alert('Imports Not Allowed')
+            }
+            var removeRaw = code.replace(/raw_input(.*)/g, 'raw_input()')
+            //add removing of import light if already imported 
+            var clean = removeRaw 
+            console.log(clean)
+            var supportCode = 'import os'
+            var pass = supportCode + '\n' + clean 
+            
+            console.log(input)
+            console.log(pass)
             $("#run").html("Running");
-            $.post("http://localhost:5000/run", {'code': code, 'input': input}, function(write){
-              console.log(write);
+            $.post("http://localhost:5000/run", {'code': pass, 'input': input}, function(write){
+              // console.log(write);
               $("#output").html(write);
               $("#run").html("Run");
             });
           }
         </script>
+
+
+
+
+
+
+
+
 
   </head>
       <body>

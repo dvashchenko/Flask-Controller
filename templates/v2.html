@@ -15,7 +15,7 @@
             $("#output").html("");
             return cleared
           }
-        function antiHack(code){
+        function antiHack(code){ //not really 
           var found = (code.match(/import/g) || []).length //forbid import other than light 
             if (found != 0){
               return true

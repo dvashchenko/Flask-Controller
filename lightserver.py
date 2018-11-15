@@ -33,7 +33,7 @@ def runcode():
     f.write(code)
     f.close()
 
-    f = open('userCode/input.txt', 'w') #user input must be concatenated
+    f = open('userCode/input.txt', 'w')
     f.write(input)
     f.close()
 

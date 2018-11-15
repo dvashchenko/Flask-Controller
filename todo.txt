@@ -1,8 +1,0 @@
-- sending prompt to input popup 
-- not outputting user prompt to terminal (do not pass )
-
-
-every string passed include
-
-from light import * 
-and if typed in then remove it 

@@ -28,19 +28,21 @@
         return false
       }
     }
-    function userInput(code) { //send prompt to input window //ignore prompt from output when passing
+    function userInput(code) {
       var found = (code.match(/raw_input()/g) || []).length
-      var test = (code.match(/raw_input()/) || []).input.split(/['']/)
-      if (found == 0) {
-        return ''
-      }
       var total = ''
       var i = 1
-      while (found != 0) {
-        var userInput = prompt(test[i])
-        total += userInput + '\n'
-        i = i + 2
-        found--
+      if (found == 0) {
+        return total
+      }
+      else {
+        var test = (code.match(/raw_input()/) || []).input.split(/['']/)
+        while (found != 0) {
+          var userInput = prompt(test[i])
+          total += userInput + '\n'
+          i = i + 2
+          found--
+        }
       }
       return total
     }
@@ -48,7 +50,7 @@
       var removeRaw = code.replace(/raw_input(.*)/g, 'raw_input()')
       var removeLight = removeRaw.replace(/(import os(.*))/g, '')
       var clean = removeLight
-      var supportCode = '' //from light import * 
+      var supportCode = ''
       var pass = supportCode + '\n' + clean
       console.log(pass)
       return pass
@@ -56,6 +58,7 @@
     function getCode() {
       var code = editor_for_source_code.getValue() //grabs code from CodeMirror
       var input = userInput(code)
+      console.log(input)
       var blockRun = importCheck(code)
       var pass = cleanCode(code)
 

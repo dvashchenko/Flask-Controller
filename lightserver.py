@@ -27,14 +27,14 @@ def test():
 @app.route("/run", methods = ['POST'])
 def runcode():
     code = request.form['code']
-    input = request.form['input']
+    userInput = request.form['input']
 
     f = open('userCode/code.py', 'w')
     f.write(code)
     f.close()
 
     f = open('userCode/input.txt', 'w')
-    f.write(input)
+    f.write(userInput)
     f.close()
 
     result = Popen("python userCode/code.py < userCode/input.txt", stdout=PIPE, stdin=PIPE, stderr=PIPE, shell=True, preexec_fn=os.setsid) 

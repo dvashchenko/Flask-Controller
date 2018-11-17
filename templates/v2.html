@@ -48,20 +48,20 @@
     }
     function cleanCode(code) {
       var removeRaw = code.replace(/raw_input(.*)/g, 'raw_input()')
-      var removeLight = removeRaw.replace(/(import os(.*))/g, '')
+      var removeLight = removeRaw.replace(/(from light import *(.*))/g, '')
       var clean = removeLight
-      var supportCode = ''
+      console.log(clean)
+      var supportCode = 'from light import *'
       var pass = supportCode + '\n' + clean
-      console.log(pass)
       return pass
     }
     function getCode() {
       var code = editor_for_source_code.getValue() //grabs code from CodeMirror
+      console.log(code)
       var input = userInput(code)
-      console.log(input)
       var blockRun = importCheck(code)
       var pass = cleanCode(code)
-
+      console.log(pass)
       $("#run").html("Running");
       $.post("http://localhost:5000/run", { 'code': pass, 'input': input }, function (write) {
         $("#output").html(write);

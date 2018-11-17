@@ -1,8 +1,4 @@
+from light import *
 
-x = raw_input()
 
-print x 
-
-y = raw_input()
-
-print y
+print 3

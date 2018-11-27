@@ -62,6 +62,7 @@
       var blockRun = importCheck(code)
       var pass = cleanCode(code)
       console.log(pass)
+
       $("#run").html("Running");
       $.post("http://localhost:5000/run", { 'code': pass, 'input': input }, function (write) {
         $("#output").html(write);

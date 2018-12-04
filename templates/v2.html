@@ -51,7 +51,7 @@
       var removeLight = removeRaw.replace(/(from light import *(.*))/g, '')
       var clean = removeLight
       console.log(clean)
-      var supportCode = 'from light import *'
+      var supportCode = ''
       var pass = supportCode + '\n' + clean
       return pass
     }

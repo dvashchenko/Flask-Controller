@@ -1,4 +1,6 @@
-### Online Python interpreter designed for kids and beginner programmers that allows users to visualize code real-time and understand basic concepts of Object-Oriented Programming. Built with Flask, Bootstrap, CodeMirror, and JavaScript.
+### Developing a platform for automated code submission, execution, and debugging for upper-division computer science classes, promoting a more intuitive learning environment.
+
+### Integrating physical control systems to provide real-time haptic feedback for interpreted scripts.
 
 #### Dependencies
 

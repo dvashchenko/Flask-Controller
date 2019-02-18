@@ -48,7 +48,7 @@ def spawn(code, userInput):
     f = open('userCode/code.py', 'w')
     f.write(code)
     f.close()
-
+ 
     f = open('userCode/input.txt', 'w')
     f.write(userInput)
     f.close()

@@ -9,15 +9,15 @@ from flask_codemirror import CodeMirror
 from flask import request
 from subprocess import Popen, PIPE, STDOUT
 from threading import Thread
-signal(SIGPIPE,SIG_DFL)
+signal(SIGPIPE, SIG_DFL)
 result = None
 output = None
 
 CODEMIRROR_LANGUAGES = ['python', 'html']
-SECRET_KEY='secret!'
+SECRET_KEY = 'secret!'
 CODEMIRROR_THEME = '3024-night'
 CODEMIRROR_ADDONS = (
-            ('display','placeholder'),
+    ('display', 'placeholder'),
 )
 
 app = Flask(__name__)
@@ -25,9 +25,11 @@ app.config.from_object(__name__)
 codemirror = CodeMirror(app)
 Bootstrap(app)
 
+
 @app.route('/')
 def test():
     return render_template('v2.html')
+
 
 @app.route("/kill")
 def kill():
@@ -41,6 +43,7 @@ def kill():
     else:
         return "Nothing to kill"
 
+
 def spawn(code, userInput):
     global result
     global output
@@ -53,11 +56,12 @@ def spawn(code, userInput):
     f.write(userInput)
     f.close()
 
-    result = Popen("python userCode/code.py < userCode/input.txt", stdout=PIPE, stdin=PIPE, stderr=PIPE, shell=True, preexec_fn=os.setsid) 
+    result = Popen("python userCode/code.py < userCode/input.txt", stdout=PIPE,
+                   stdin=PIPE, stderr=PIPE, shell=True, preexec_fn=os.setsid)
     output = result.communicate()[0]
 
 
-@app.route("/run", methods = ['POST'])
+@app.route("/run", methods=['POST'])
 def runcode():
     code = request.form['code']
     userInput = request.form['input']
@@ -77,5 +81,5 @@ def getOutput():
         return "No output..."
 
 
-if __name__ =='__main__':
+if __name__ == '__main__':
     app.run(debug=True)

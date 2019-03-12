@@ -7,3 +7,5 @@ userCode/code\.py
 userCode/input\.txt
 
 .vscode/
+
+\.DS_Store
